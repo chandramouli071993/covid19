@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div style="text-align: center;"><h1>Welcome to COVID 19 Homepage</h1></div>
+  </div>
+</div>
+<hr/>
+<div class="row" style="text-align: center">
+  <div class="col-xs-12">
+    <label>Last Updated status at {{ generalData.last_update | date: 'medium' }}</label>
+  </div>
+</div>
+<hr/>
+<div class="row">
+  <div class="col-xs-4">
+    <label>Total Cases</label>
+    <output>{{generalData.total_cases}}</output>
+  </div>
+  <div class="col-xs-4">
+    <label>Total Recovered</label>
+    <output>{{generalData.recovery_cases}}</output>
+  </div>
+  <div class="col-xs-4">
+    <label>Total Deaths</label>
+    <output>{{generalData.death_cases}}</output>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <label>Current infected persons</label>
+    <output>{{generalData.currently_infected}}</output>
+  </div>
+</div>
+
