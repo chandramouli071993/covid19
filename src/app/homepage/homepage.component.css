@@ -1,0 +1,20 @@
+.label {
+    color: white;
+    padding: 8px;
+    font-size: 20px;
+  }
+  
+  .success {background-color: #4CAF50;} /* Green */
+  .info {background-color: #2196F3;} /* Blue */
+  .warning {background-color: #ff9800;} /* Orange */
+  .danger {background-color: #f44336;} /* Red */
+  .other {background-color: #e7e7e7; color: black;} /* Gray */
+
+  .border {
+      border-style: groove;
+      border-color: black;
+  }
+
+  .output {
+      font-style: oblique;
+  }

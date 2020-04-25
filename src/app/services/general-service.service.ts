@@ -13,10 +13,10 @@ export class GeneralServiceService {
   generalDataFetch() {
     return this.http
       .get<GeneralData>(
-        "https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats"
+        "https://api.thevirustracker.com/free-api?global=stats"
       ).pipe(
         map(generalData => {
-          return generalData.data;
+          return generalData.results;
         })
       )
   }

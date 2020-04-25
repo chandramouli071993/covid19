@@ -1,33 +1,59 @@
+<div class="container-fluid">
 <div class="row">
-  <div class="col-xs-12">
-    <div style="text-align: center;"><h1>Welcome to COVID 19 Homepage</h1></div>
-  </div>
-</div>
-<hr/>
-<div class="row" style="text-align: center">
-  <div class="col-xs-12">
-    <label>Last Updated status at {{ generalData.last_update | date: 'medium' }}</label>
+  <div class="col-lg-12">
+    <div style="text-align: center;"><h1>World Statistics Data currently</h1></div>
   </div>
 </div>
 <hr/>
 <div class="row">
-  <div class="col-xs-4">
-    <label>Total Cases</label>
-    <output>{{generalData.total_cases}}</output>
+  <div class="col-sm-4 col-md-4 col-lg-4">
+    <label class="label info">Total Cases</label>
+    <output style="font-size: 25px;">{{generalData.total_cases}}</output>
   </div>
-  <div class="col-xs-4">
-    <label>Total Recovered</label>
-    <output>{{generalData.recovery_cases}}</output>
+  <div class="col-sm-4 col-md-4 col-lg-4">
+    <label class="label success">Total Recovered</label>
+    <output style="font-size: 25px;">{{generalData.total_recovered}}</output>
   </div>
-  <div class="col-xs-4">
-    <label>Total Deaths</label>
-    <output>{{generalData.death_cases}}</output>
+  <div class="col-sm-4 col-md-4 col-lg-4">
+    <label class="label danger">Total Deaths</label>
+    <output style="font-size: 25px;">{{generalData.total_deaths}}</output>
   </div>
 </div>
+<hr />
+<br />
+
 <div class="row">
-  <div class="col-xs-6">
-    <label>Current infected persons</label>
-    <output>{{generalData.currently_infected}}</output>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <label class="label warning">Current infected persons</label>
+    <output style="font-size: 25px;">{{generalData.total_unresolved}}</output>
   </div>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <label class="label info">Total Affected Countries</label>
+    <output style="font-size: 25px;">{{generalData.total_affected_countries}}</output>
+  </div>
+</div>
+<hr />
+<br />
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <label class="label warning">Total Active Cases</label>
+    <output style="font-size: 25px;">{{generalData.total_active_cases}}</output>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <label class="label warning">Total Serious cases</label>
+    <output style="font-size: 25px;">{{generalData.total_serious_cases}}</output>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <label class="label info">Total New Cases</label>
+    <output style="font-size: 25px;">{{generalData.total_new_cases_today}}</output>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <label class="label info">Total New Deaths</label>
+    <output style="font-size: 25px;">{{generalData.total_new_deaths_today}}</output>
+  </div>
+</div>
 </div>
 
