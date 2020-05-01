@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GeneralServiceService } from 'src/app/services/general-service.service';
 import { CountriesList } from 'src/app/Beans/CountriesList';
 import { CountryWise } from 'src/app/Beans/countryWise';
 import { Router } from '@angular/router';
-import {MatTableDataSource} from '@angular/material/table'
+import {MatTable} from '@angular/material/table'
 
 @Component({
   selector: 'app-countries-list',
@@ -17,9 +17,16 @@ export class CountriesListComponent implements OnInit {
   countriesMap : Map<String, CountryWise>;
   countriesList : CountryWise[] = [];
   dataSource : any;
-  displayedColumns: string[] = ['title', 'total_cases', 'total_active_cases', 'total_deaths', 
+  displayedColumns = ['title'
+  , 'total_cases', 'total_active_cases', 'total_deaths', 
   'total_new_cases_today', 'total_new_deaths_today', 'total_recovered', 'total_serious_cases'
   ];
+  table: MatTable<CountryWise>;
+
+  // displayedColumns: string[] = ['Country'
+  // , 'Total Cases', 'Active Cases', 'Deaths', 
+  // 'New Cases Today', 'New Deaths Today', 'Recovered Cases', 'Serious Cases'
+  // ];
   
   //, 'Total Cases', 'Active Cases', 'Deaths' , 'Cases Today', 
   //'Deaths Today', 'Recovered Cases', 'Serious Cases'];
@@ -39,7 +46,7 @@ export class CountriesListComponent implements OnInit {
     // }
     );
     console.log(this.countriesList);
-    this.dataSource = new MatTableDataSource(this.countriesList);
+    this.table.renderRows();
 }
 
 }

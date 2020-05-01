@@ -1,8 +1,44 @@
-<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+<!-- <div class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Country </th>
+    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+  </ng-container>
+  <ng-container matColumnDef="total_cases">
+    <th mat-header-cell *matHeaderCellDef> Total Cases </th>
+    <td mat-cell *matCellDef="let element"> {{element.total_cases}} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div> -->
+
+<!-- <table mdbTable responsive="true">
+  <thead class="black white-text">
+    <tr>
+    <th *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let el of countriesList">
+      <th scope="row">{{el.title}}</th>
+      <td>{{el.total_cases}}</td>
+      <td>{{el.total_active_cases}}</td>
+      <td>{{el.total_deaths}}</td>
+      <td>{{el.total_new_cases_today}}</td>
+      <td>{{el.total_new_deaths_today}}</td>
+      <td>{{el.total_recovered}}</td>
+      <td>{{el.total_serious_cases}}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+
+<mat-table #table *ngIf="countriesList" [dataSource]="countriesList"  class="mat-elevation-z8">
 
   <ng-container matColumnDef="title">
     <mat-header-cell *matHeaderCellDef>Country</mat-header-cell>
-    <mat-cell *matCellDef="let lesson">{{lesson.title}}</mat-cell>
+    <mat-cell *matCellDef="let el">{{el.title}}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="total_cases">
@@ -37,9 +73,10 @@
 
   <ng-container matColumnDef="total_serious_cases">
     <mat-header-cell *matHeaderCellDef>Serious Cases</mat-header-cell>
-    <mat-cell *matCellDef="let lesson">{{lesson.total_serious_cases}}</mat-cell>
+    <mat-cell *matCellDef="let element">{{element.total_serious_cases}}</mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 </mat-table>
 
