@@ -9,6 +9,7 @@ import {CountriesComponent} from './countries/countries.component';
 import {CountriesListComponent} from './countries/countries-list/countries-list.component';
 import {CountriesDetailsComponent} from './countries/countries-details/countries-details.component';
 import {HttpClientModule} from "@angular/common/http";
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
     HomepageComponent,
     CountriesComponent,
     CountriesListComponent,
-    CountriesDetailsComponent
+    CountriesDetailsComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,13 @@
 .label {
     color: white;
-    padding: 8px;
     font-size: 20px;
   }
+
+.div {
+    margin-top: 15px;
+    padding-top: 15px;
+    align-self: center;
+}
   
   .success {background-color: #4CAF50;} /* Green */
   .info {background-color: #2196F3;} /* Blue */
