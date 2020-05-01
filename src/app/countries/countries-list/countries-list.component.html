@@ -1,17 +1,45 @@
-<div class="container-fluid">
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>XXXXX</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- <tr mdbTableCol *ngFor="let el of countriesList.getValues()">
-            <th scope="row">{{el.title}}</th>
-            <td>{{el.title}}</td>
-            <td>{{el.title}}</td>
-            <td>{{el.title}}</td>
-          </tr> -->
-        </tbody>
-      </table>
-</div>
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef>Country</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.title}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total_cases">
+    <mat-header-cell *matHeaderCellDef>Total Cases</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.total_cases}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total_active_cases">
+    <mat-header-cell *matHeaderCellDef>Active Cases</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.total_active_cases}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total_deaths">
+    <mat-header-cell *matHeaderCellDef>Deaths</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.total_deaths}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total_new_cases_today">
+    <mat-header-cell *matHeaderCellDef>New Cases Today</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.total_new_cases_today}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total_new_deaths_today">
+    <mat-header-cell *matHeaderCellDef>New Deaths Today</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.total_new_deaths_today}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total_recovered">
+    <mat-header-cell *matHeaderCellDef>Recovered Cases</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.total_recovered}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="total_serious_cases">
+    <mat-header-cell *matHeaderCellDef>Serious Cases</mat-header-cell>
+    <mat-cell *matCellDef="let lesson">{{lesson.total_serious_cases}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+</mat-table>
+

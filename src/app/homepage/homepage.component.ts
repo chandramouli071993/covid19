@@ -18,7 +18,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.generalService.generalDataFetch().subscribe(genData => {
       this.generalData = genData[0];
-      console.log(this.generalData);
+      //console.log(this.generalData);
     }, 
     error => {
       console.log(error);
