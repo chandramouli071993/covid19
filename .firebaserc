@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "codvid19-a4f8e",
-    "covid19": "covid19-bf248"
+    "covid19": "covid19-bf248",
+    "hosting": "covid19v2-312c7"
   }
 }

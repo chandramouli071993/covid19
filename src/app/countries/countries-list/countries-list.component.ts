@@ -4,6 +4,7 @@ import { CountriesList } from 'src/app/Beans/CountriesList';
 import { CountryWise } from 'src/app/Beans/countryWise';
 import { Router } from '@angular/router';
 import {MatTable} from '@angular/material/table'
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-countries-list',
@@ -12,24 +13,19 @@ import {MatTable} from '@angular/material/table'
 })
 export class CountriesListComponent implements OnInit {
 
-  constructor(private service : GeneralServiceService, private router: Router) { }
+  constructor(private service : GeneralServiceService, private router: Router) { 
+    this.sortedData = this.countriesList.slice();
+  }
 
   countriesMap : Map<String, CountryWise>;
   countriesList : CountryWise[] = [];
   dataSource : any;
-  displayedColumns = ['title'
-  , 'total_cases', 'total_active_cases', 'total_deaths', 
-  'total_new_cases_today', 'total_new_deaths_today', 'total_recovered', 'total_serious_cases'
-  ];
-  table: MatTable<CountryWise>;
+  sortedData: CountryWise[];
 
-  // displayedColumns: string[] = ['Country'
-  // , 'Total Cases', 'Active Cases', 'Deaths', 
-  // 'New Cases Today', 'New Deaths Today', 'Recovered Cases', 'Serious Cases'
-  // ];
-  
-  //, 'Total Cases', 'Active Cases', 'Deaths' , 'Cases Today', 
-  //'Deaths Today', 'Recovered Cases', 'Serious Cases'];
+  displayedColumns: string[] = ['Country'
+  , 'Total Cases', 'Active Cases', 'Deaths', 
+  'New Cases Today', 'New Deaths Today', 'Recovered Cases', 'Serious Cases'
+  ];
 
   ngOnInit() {
     let map = new Map<string, CountryWise>();
@@ -39,14 +35,38 @@ export class CountriesListComponent implements OnInit {
             this.countriesList.push(genData[value]);
           } 
     }
-    // , 
-    // error => {
-    //   console.log(error);
-    //   this.router.navigate(['error']);
-    // }
+    , 
+    error => {
+      console.log(error);
+      this.router.navigate(['error']);
+    }
     );
-    console.log(this.countriesList);
-    this.table.renderRows();
+
+    this.sortedData = this.countriesList;
+}
+
+sortData(sort: Sort) {
+  const data = this.countriesList.slice();
+  if (!sort.active || sort.direction === '') {
+    this.sortedData = data;
+    return;
+  }
+
+  this.sortedData = data.sort((a, b) => {
+    const isAsc = sort.direction === 'asc';
+    switch (sort.active) {
+      case 'title': return this.compare(a.title, b.title, isAsc);
+      case 'total_cases': return this.compare(a.total_cases, b.total_cases, isAsc);
+      case 'total_deaths': return this.compare(a.total_deaths, b.total_deaths, isAsc);
+      // case 'carbs': return this.compare(a.carbs, b.carbs, isAsc);
+      // case 'protein': return this.compare(a.protein, b.protein, isAsc);
+      default: return 0;
+    }
+  });
+}
+
+compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
 
 }
